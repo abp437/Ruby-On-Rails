@@ -22,22 +22,23 @@ class ToDoApp extends React.Component {
   }
 
   render() {
-    const { isLoaded } = this.state;
+    const { isLoaded, users } = this.state;
     if (isLoaded) {
       return (
         <div className='container'>
           <div className='row'>
-            <ul className='list-unstyled col-6'>
-              <li className='row'>
-                <span className='font-weight-bold col-6'>Username</span>
-                <span className='font-weight-bold col-6'>Email</span>
+            <ul className='list-unstyled col-8'>
+              <li className='d-flex mb-3'>
+                <span className='font-weight-bold col-4'>Username</span>
+                <span className='font-weight-bold col-4'>Email</span>
               </li>
               {
-                this.state.users.map((user, i) => {
+                users.map((user, i) => {
                   return (
-                    <li key={i} className='row'>
-                      <span className='col-6'>{user.username}</span>
-                      <span className='col-6'>{user.email}</span>
+                    <li key={i} className='mb-3 d-flex align-items-center'>
+                      <span className='col-4 text-truncate'>{user.username}</span>
+                      <span className='col-4 text-truncate'>{user.email}</span>
+                      <button type='button' className='col-4 btn btn-primary'>Show Details</button>
                     </li>
                   )
                 })
