@@ -23,7 +23,7 @@ module UsersApp
     config.load_defaults 5.2
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost'
+        origins 'http://localhost:8000'
 
         resource '*',
           headers: :any,

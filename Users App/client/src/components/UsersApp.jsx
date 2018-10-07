@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 class ToDoApp extends React.Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class ToDoApp extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/users")
-    .then(res => res.json())
+    axios.get('http://localhost:3000/users')
+    .then(res =>  res.data)
     .then(result => {
       this.setState({
         users: result,
