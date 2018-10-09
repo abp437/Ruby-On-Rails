@@ -1,47 +1,56 @@
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+import UserDetails from 'Components/UserDetails';
 
-class ToDoApp extends React.Component {
+class UsersApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       users: [],
-      isLoaded: false
+      isLoaded: false,
+      selectedUser: 1
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/users")
-    .then(res => res.json())
-    .then(result => {
-      this.setState({
-        users: result,
-        isLoaded: true
+    axios.get('http://localhost:3000/users')
+      .then(res => res.data)
+      .then(result => {
+        this.setState({
+          users: result,
+          isLoaded: true
+        });
       });
+  }
+
+  selectUser(userId) {
+    this.setState({
+      selectedUser: userId
     });
   }
 
   render() {
-    const { isLoaded } = this.state;
+    const { selectedUser, isLoaded, users } = this.state;
     if (isLoaded) {
       return (
         <div className='container'>
           <div className='row'>
-            <ul className='list-unstyled col-6'>
-              <li className='row'>
-                <span className='font-weight-bold col-6'>Username</span>
-                <span className='font-weight-bold col-6'>Email</span>
+            <ul className='list-unstyled col-5'>
+              <li className='d-flex mb-3'>
+                <span className='font-weight-bold col-4'>Users:</span>
               </li>
               {
-                this.state.users.map((user, i) => {
+                users.map((user, i) => {
                   return (
-                    <li key={i} className='row'>
-                      <span className='col-6'>{user.username}</span>
-                      <span className='col-6'>{user.email}</span>
+                    <li key={i} className='mb-3 d-flex align-items-center'>
+                      <span className='col-4 text-truncate'>{user.username}</span>
+                      <button type='button' className='col-4 btn btn-outline-primary btn-sm' onClick={this.selectUser.bind(this, user.id)} >Show Details</button>
                     </li>
                   )
                 })
               }
             </ul>
+            <UserDetails selectedUserPassed={selectedUser} />
           </div>
         </div>
       );
@@ -52,6 +61,6 @@ class ToDoApp extends React.Component {
 }
 
 ReactDOM.render(
-  <ToDoApp />,
+  <UsersApp />,
   document.getElementById('usersApp')
 );
