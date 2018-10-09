@@ -1,10 +1,10 @@
 # Dependencies:
 
-## Ruby - 2.4.4
-## Rails - 5.2.1
-## Node - 8.11.3(LTS)
-## React - 16.5.1
-## Postgres - 10.4
+### Ruby - 2.4.4
+### Rails - 5.2.1
+### Node - 8.11.3(LTS)
+### React - 16.5.1
+### Postgres - 10.4
 
 # Server Setup:
 
