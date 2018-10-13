@@ -12,12 +12,13 @@ module.exports = {
   entry: ROOT_PATH,
   output: {
     path: DIST_DIR,
-    filename: '[hash].js'
+    filename: '[hash].js',
+    publicPath: '/',
   },
   module: {
     rules: [
       {
-        test: /\.js(x)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -57,7 +58,8 @@ module.exports = {
     extensions: ['.jsx', '.js']
   },
   devServer: {
-    port: 8000
+    port: 8000,
+    historyApiFallback: true
   },
   plugins: [
     new webpack.ProvidePlugin({

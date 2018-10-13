@@ -1,3 +1,2 @@
-import 'bootstrap';
-import './components/UsersApp';
 import './stylesheets/main.sass';
+import 'Components/routes/AppRouter';

@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import UserDetails from 'Components/UserDetails';
 
@@ -60,7 +59,4 @@ class UsersApp extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <UsersApp />,
-  document.getElementById('usersApp')
-);
+export default UsersApp;
