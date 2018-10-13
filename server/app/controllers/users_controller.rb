@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  wrap_parameters :user, include: [:username, :email, :password, :city_id]
+
   def index
     render json: User.all
   end
