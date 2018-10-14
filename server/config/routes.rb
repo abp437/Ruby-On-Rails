@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'authenticate', to: 'authentication#authenticate'
+
   resources :cities, only: %i[index create] do
   end
 end

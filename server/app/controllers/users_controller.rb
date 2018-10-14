@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_request, only: [:create]
+
   wrap_parameters :user, include: [:username, :email, :password, :city_id]
 
   def index
