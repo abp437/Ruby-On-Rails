@@ -1,0 +1,90 @@
+.loginSignBox
+  display: flex
+  justify-content: center
+  .loginSignUpWrapper
+    flex: 0 0 370px
+    max-width: 370px
+    margin-top: 10%
+  .loginRegisterTabs
+    position: relative
+    border-bottom: 1px solid #e6e6e6
+    li
+      flex: 1 0 auto
+    a
+      text-decoration: none
+      font-size: 14px
+      padding: 15px
+      color: #333333
+      &.active
+        background: #f0f0f0
+        color: #333333
+        font-weight: 600
+    .floatingLine
+      border-bottom: 2px solid #2a3eb1
+      position: absolute
+      left: 0
+      right: 20px
+      bottom: 0
+      transition: all 300ms ease
+  form
+    padding: 20px
+    .selectCities
+      font-size: 14px
+      color: #666666
+    .signUpBtn
+      background: #ff1744
+      border-color: #ff1744
+      color: $white
+    .textField
+      position: relative
+      margin-bottom: 15px
+      padding-top: 15px
+      &:last-of-type
+        margin-bottom: 0
+      .expandLine
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        transform: scaleX(0)
+        transform-origin: center
+        height: 2px
+        background: #3367d6
+        transition: all 300ms ease
+      &.isInputFocused .expandLine
+        transform: scaleX(1)
+    button
+      width: 100%
+      border-radius: 2px
+      padding: 10px 15px
+      font-size: 14px
+      font-weight: 600
+      margin-top: 30px
+    input
+      border-width: 0 0 1px
+      border-style: solid
+      border-color: #dddddd
+      padding: 0 0 10px
+      font-size: 14px
+      width: 100%
+      background: transparent
+      &:focus ~ .floatingLabel
+        font-size: 12px
+        color: #3367d6
+        transform: translateY(0%)
+      &:focus
+        outline: none
+    .hasValue .floatingLabel
+      font-size: 12px
+      color: #3367d6
+      transform: translateY(0%)
+    .floatingLabel
+      font-size: 14px
+      color: #666666
+      position: absolute
+      top: 0
+      left: 0
+      transform: translateY(100%)
+      transition: all 300ms ease
+      z-index: -1
+      line-height: 1.4
