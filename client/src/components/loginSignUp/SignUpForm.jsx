@@ -66,7 +66,7 @@ class SignUpForm extends React.Component {
           }
         </select>
         <button
-          className="btn signUpBtn"
+          className="btn fw600 signUpBtn"
           onClick={(event) => this.handleSignUpFormSubmit.call(this, event)}>Sign Up</button>
       </form>
     )

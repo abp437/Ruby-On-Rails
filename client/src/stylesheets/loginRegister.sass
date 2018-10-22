@@ -1,6 +1,4 @@
 .loginSignBox
-  display: flex
-  justify-content: center
   .loginSignUpWrapper
     flex: 0 0 370px
     max-width: 370px
@@ -18,12 +16,11 @@
       &.active
         background: #f0f0f0
         color: #333333
-        font-weight: 600
     .floatingLine
       border-bottom: 2px solid #2a3eb1
       position: absolute
       left: 0
-      right: 20px
+      right: auto
       bottom: 0
       transition: all 300ms ease
   form
@@ -58,7 +55,6 @@
       border-radius: 2px
       padding: 10px 15px
       font-size: 14px
-      font-weight: 600
       margin-top: 30px
     input
       border-width: 0 0 1px

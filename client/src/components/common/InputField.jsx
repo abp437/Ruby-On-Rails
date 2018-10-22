@@ -22,7 +22,7 @@ class InputField extends React.Component {
 
   render() {
     const { handleOnChange, inputId, type, className, labelText, value } = this.props;
-    let textField = getClassSet({
+    const textField = getClassSet({
       textField: true,
       hasValue: value !== "",
       isInputFocused: this.state.isInputFocused

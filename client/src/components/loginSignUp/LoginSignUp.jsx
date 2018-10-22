@@ -4,6 +4,7 @@ import SignUpForm from 'Components/loginSignUp/SignUpForm';
 import axios from 'axios';
 
 const { TAB_LOGIN, TAB_SIGN_UP } = appConstants.LOGINSIGNUPTABS;
+const { DEAD_LINK } = appConstants;
 
 class LoginSignUp extends React.Component {
   constructor(props) {
@@ -61,19 +62,19 @@ class LoginSignUp extends React.Component {
 
   render() {
     return (
-      <div className="loginSignBox">
+      <div className="d-flex justify-content-center loginSignBox">
         <div className="loginSignUpWrapper boxShadow-1 borderRadius-2">
           <ul className="nav loginRegisterTabs">
             <li>
               <a
-                href="javascript:void(0)"
-                className={`d-block text-center ${this.state.activeTab == TAB_LOGIN ? 'active' : ''}`}
+                href={DEAD_LINK}
+                className={`d-block text-center ${this.state.activeTab == TAB_LOGIN ? 'fw600 active' : ''}`}
                 onClick={() => this.handleClickTabs.call(this, TAB_LOGIN)}>LOGIN</a>
             </li>
             <li>
               <a
-                href="javascript:void(0)"
-                className={`d-block text-center ${this.state.activeTab == TAB_SIGN_UP ? 'active' : ''}`}
+                href={DEAD_LINK}
+                className={`d-block text-center ${this.state.activeTab == TAB_SIGN_UP ? 'fw600 active' : ''}`}
                 onClick={() => this.handleClickTabs.call(this, TAB_SIGN_UP)}>SIGN UP</a>
             </li>
             <span className="floatingLine"></span>

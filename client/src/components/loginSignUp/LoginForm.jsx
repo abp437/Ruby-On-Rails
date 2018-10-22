@@ -4,8 +4,8 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
-      userNameValue: 'Hitesh',
-      passwordValue: 'Hitesh123',
+      userNameValue: '',
+      passwordValue: '',
     }
     this.handleOnChangeUsername = this.handleOnChangeUsername.bind(this);
     this.handleOnChangePassword = this.handleOnChangePassword.bind(this);
@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
           labelText="Password"
           handleOnChange={this.handleOnChangePassword}
           value={this.state.passwordValue} />
-        <button className="btn btn-primary">Login</button>
+        <button className="btn btn-primary fw600">Login</button>
       </form>
     )
   }
