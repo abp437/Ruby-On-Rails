@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
-import SignUp from 'Components/loginSignUp/SignUp';
+import _ from 'lodash';
+import LoginSignUp from 'Components/loginSignUp/LoginSignUp';
 import PageNotFound from 'Components/PageNotFound';
 import UsersApp from 'Components/UsersApp';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -7,7 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 const AppRouter = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={SignUp} />
+      <Route exact path="/" component={LoginSignUp} />
       <Route path="/users-app" component={UsersApp} />
       <Route component={PageNotFound} />
     </Switch>

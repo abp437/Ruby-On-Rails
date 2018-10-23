@@ -1,0 +1,5 @@
+$shapes: 1, 2, 3
+
+@each $shape in $shapes
+  .borderRadius-#{$shape}
+    border-radius: #{2 * $shape}px
