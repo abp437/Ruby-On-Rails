@@ -1,0 +1,10 @@
+Helpers:
+Helpers are where we extract out our common logic only for Views of the application.
+
+Migration Files:
+These are basically the files which your application uses for creating tables in your Database.
+
+First we need to build out a route, then controller and an action.
+
+To get paths for link in rails we need to run "rails routes" and then in the prefix part we just need to append whatever prefix we choose with "_path".
+e.g.: "welcome_home" becomes "welcome_home_path"
