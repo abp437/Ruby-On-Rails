@@ -8,3 +8,37 @@ First we need to build out a route, then controller and an action.
 
 To get paths for link in rails we need to run "rails routes" and then in the prefix part we just need to append whatever prefix we choose with "_path".
 e.g.: "welcome_home" becomes "welcome_home_path"
+
+Scaffolding:
+"rails generate scaffold Article title:string description:text" => This is the scaffold generator
+Scaffolding generates a Migration, Model, tests, Controller and Routes.
+
+Rails Conventions:
+Model name: Singular, First letter Uppercase => Article
+Table name: Plural, Lowercase of Model name => articles
+Model name filename: All lowercase, but Singular => article.rb
+Controller name: Plural of Model => articles_controller.rb
+
+Generate Migrations via:
+rails generate migration create_articles
+
+rails db:rollback => It reverts the last migration.
+
+Managing migrations:
+If you have just created a table and you forgot to add something then you can just revert the last migration, make your changes and then run the migration.
+But I don't prefer that way.
+When you make a mistake, the best way is to create a new migration file.
+
+The purpose of this migration is to add Description column to Articles Table:
+rails generate migration add_description_to_articles
+So, the convention is:
+rails generate migration add_column_name_to_table_name
+
+schema.rb:
+This file is the file where we get to see all the Tables of our Database.
+
+Models:
+To communicate with a table, you need a model.
+The Rails console has got direct access to the db.
+So, in the console you can directly do something like this:
+Article.all
