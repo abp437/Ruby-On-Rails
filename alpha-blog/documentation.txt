@@ -42,3 +42,11 @@ To communicate with a table, you need a model.
 The Rails console has got direct access to the db.
 So, in the console you can directly do something like this:
 Article.all
+Article.find(id)
+Article.destroy(id)
+
+To make sure that we add only valid data in our db, we need to add Model level validations in the model file.
+
+To check for errors on our object we do something like this:
+object.errors.any? => true/false
+object.errors.full_messages => Array of Error Mssages

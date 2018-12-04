@@ -5,8 +5,8 @@
 class AddDescriptionToArticles < ActiveRecord::Migration[5.2]
   # We define whatever changes we want to make in the schema inside the change method.
   def change
-    # add_column is a rails method to add column to a table.
-    # add_column :table_name, :column_name, :data_type_of_column
+    # add_column is a rails method to add column to a table. Default param is optional.
+    # add_column :table_name, :column_name, :data_type_of_column, :default => 'default value'
     add_column :articles, :description, :text
     add_column :articles, :created_at, :datetime
     add_column :articles, :updated_at, :datetime
