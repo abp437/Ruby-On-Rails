@@ -1,0 +1,89 @@
+Helpers:
+Helpers are where we extract out our common logic only for Views of the application.
+
+Migration Files:
+These are basically the files which your application uses for creating tables in your Database.
+
+First we need to build out a route, then controller and an action.
+
+To get paths for link in rails we need to run "rails routes" and then in the prefix part we just need to append whatever prefix we choose with "_path".
+e.g.: "welcome_home" becomes "welcome_home_path"
+
+Scaffolding:
+"rails generate scaffold Article title:string description:text" => This is the scaffold generator
+Scaffolding generates a Migration, Model, tests, Controller and Routes.
+
+Rails Conventions:
+Model name: Singular, First letter Uppercase => Article
+Table name: Plural, Lowercase of Model name => articles
+Model name filename: All lowercase, but Singular => article.rb
+Controller name: Plural of Model => articles_controller.rb
+
+Generate Migrations via:
+rails generate migration create_articles
+
+rails db:rollback => It reverts the last migration.
+
+Managing migrations:
+If you have just created a table and you forgot to add something then you can just revert the last migration, make your changes and then run the migration.
+But I don't prefer that way.
+When you make a mistake, the best way is to create a new migration file.
+
+The purpose of this migration is to add Description column to Articles Table:
+rails generate migration add_description_to_articles
+So, the convention is:
+rails generate migration add_column_name_to_table_name
+
+schema.rb:
+This file is the file where we get to see all the Tables of our Database.
+
+Models:
+To communicate with a table, you need a model.
+The Rails console has got direct access to the db.
+So, in the console you can directly do something like this:
+Article.all
+Article.find(id)
+Article.destroy(id)
+
+To make sure that we add only valid data in our db, we need to add Model level validations in the model file.
+
+To check for errors on our object we do something like this:
+object.errors.any? => true/false
+object.errors.full_messages => Array of Error Messages
+
+New instance variable in the Articles Controller
+@article = Article.new
+
+We'll handle creation of new objects via the "create" action in controller.
+We need to whitelist, the params in Form submission.
+
+Whenever we get new paths from resources, we get a lot of paths, such as new, edit, delete, patch, show, index.
+
+For dealing with model backed forms, Rails provides helper methods such as "form_for"
+
+WE NEED TO EXPLICITLY PASS THE INSTANCE VARIABLE FOR EACH VIEW IN OUR ACTION.
+For Example:
+If we have an index action, which is associated with an index template, then
+In that action we'll have something like this:
+
+def index
+  @article = Article.all
+end
+
+Now in the view file, we'll have "@article" accessible to us as an instance variable, now in this case it contains the list of all articles in our db.
+So we can run loops through it to get each article running, like this:
+
+<% @article.each do |article| %>
+  <li>
+    <label>Title:</label>
+    <span><%= article.title %></span>
+    <br />
+    <label>Description:</label>
+    <span><%= article.description %></span>
+  </li>
+<% end %>
+
+For db actions we need to whitelist all the params we intend to pass.
+To create a new entry we use "object.save"
+To update an existing entry we use "object.update"
+To delete an existing entry we use "object.destroy"
