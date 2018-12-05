@@ -49,4 +49,36 @@ To make sure that we add only valid data in our db, we need to add Model level v
 
 To check for errors on our object we do something like this:
 object.errors.any? => true/false
-object.errors.full_messages => Array of Error Mssages
+object.errors.full_messages => Array of Error Messages
+
+New instance variable in the Articles Controller
+@article = Article.new
+
+We'll handle creation of new objects via the "create" action in controller.
+We need to whitelist, the params in Form submission.
+
+Whenever we get new paths from resources, we get a lot of paths, such as new, edit, delete, patch, show, index.
+
+For dealing with model backed forms, Rails provides helper methods such as "form_for"
+
+WE NEED TO EXPLICITLY PASS THE INSTANCE VARIABLE FOR EACH VIEW IN OUR ACTION.
+For Example:
+If we have an index action, which is associated with an index template, then
+In that action we'll have something like this:
+
+def index
+  @article = Article.all
+end
+
+Now in the view file, we'll have "@article" accessible to us as an instance variable, now in this case it contains the list of all articles in our db.
+So we can run loops through it to get each article running, like this:
+
+<% @article.each do |article| %>
+  <li>
+    <label>Title:</label>
+    <span><%= article.title %></span>
+    <br />
+    <label>Description:</label>
+    <span><%= article.description %></span>
+  </li>
+<% end %>
