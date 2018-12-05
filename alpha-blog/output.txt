@@ -1,0 +1,4 @@
+Custtom Authentication System from scratch
+Build one-to-many and many-to-many Associations
+Add profile images using Gravatars
+Use Pagination for Listing views

@@ -82,3 +82,8 @@ So we can run loops through it to get each article running, like this:
     <span><%= article.description %></span>
   </li>
 <% end %>
+
+For db actions we need to whitelist all the params we intend to pass.
+To create a new entry we use "object.save"
+To update an existing entry we use "object.update"
+To delete an existing entry we use "object.destroy"
