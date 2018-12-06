@@ -1,0 +1,24 @@
+%h1.text-center.mb-5 Listing products
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Image Url
+      %th Price
+      %th
+
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= product.title
+        %td= product.description
+        %td= product.image_url
+        %td= product.price
+        %td
+          = link_to 'Show', admin_product_path(product), class: 'btn btn-primary btn-sm text-white', role: 'button', 'aria-pressed' => 'true'
+          = link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-primary btn-sm text-white', role: 'button', 'aria-pressed' => 'true'
+          = link_to 'Delete', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm text-white', role: 'button', 'aria-pressed' => 'true'
+
+= link_to 'New Product', new_admin_product_path, class: 'btn btn-outline-primary btn-sm'
