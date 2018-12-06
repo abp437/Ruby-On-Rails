@@ -1,0 +1,18 @@
+// Generator Constants
+$font-weights: 9;
+$font-sizes: 36;
+
+// Font Weights Generator
+@for $i from 3 through $font-weights {
+  .fw-#{$i*100} {
+    font-weight: #{$i*100};
+  }
+}
+
+// Font Sizes Generator
+@for $i from 10 through $font-sizes {
+  .fs-#{$i} {
+    font-size: #{$i}px;
+    line-height: #{$i+2}px;
+  }
+}

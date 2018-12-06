@@ -1,0 +1,11 @@
+%h1 Article Detail
+= link_to "Edit", edit_article_path(@article.id)
+%p
+  Title:
+  %br/
+  = @article.title
+%p
+  Description:
+  %br/
+  = @article.description
+= link_to "List All Articles", articles_path
