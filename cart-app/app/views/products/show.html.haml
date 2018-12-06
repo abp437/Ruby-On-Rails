@@ -1,0 +1,21 @@
+%h1 Product Detail
+
+%p#notice= notice
+
+%ul.list-unstyled
+  %li
+    %p.h5 Title:
+    %p= @product.title
+  %li
+    %p.h5 Description:
+    %p= @product.description
+  %li
+    %p.h5 Image Url:
+    %p= @product.image_url
+  %li
+    %p.h5 Price:
+    %p= @product.price
+%br/
+= link_to 'Edit', edit_product_path(@product), class: 'btn btn-outline-primary btn-sm'
+\|
+= link_to 'Back', products_path, class: 'btn btn-outline-primary btn-sm'
