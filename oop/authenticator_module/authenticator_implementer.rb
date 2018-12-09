@@ -1,19 +1,22 @@
-require_relative "authenticator_bcrypt"
+require_relative 'authenticator_bcrypt'
 
 users = [
-  {username: "Akshay", password: "the rock"},
-  {username: "Hitesh", password: "stone cold"},
-  {username: "Sourabh", password: "hello world"},
-  {username: "Shailesh", password: "2shailesh"},
-  {username: "Akash", password: "nazional leibstandarte"},
+  { username: 'Akshay', password: 'the rock' },
+  { username: 'Hitesh', password: 'stone cold' },
+  { username: 'Sourabh', password: 'hello world' },
+  { username: 'Shailesh', password: '2shailesh' },
+  { username: 'Akash', password: 'nazional leibstandarte' }
 ]
 
-hashed_users = UserAuthenticate.create_secure_passwords(users)
+# Don't access methods on a Module Directly.
+# Include it in a class and then access it on the Class or Objects of that Class
 
-puts "Enter User Details:"
-puts "Username:"
-username = gets.chomp
-puts "Password:"
-password = gets.chomp
+# hashed_users = UserAuthenticate::ClassMethods.create_secure_passwords(users)
 
-p UserAuthenticate.authenticate_user(username, password, hashed_users)
+# puts 'Enter User Details:'
+# puts 'Username:'
+# username = gets.chomp
+# puts 'Password:'
+# password = gets.chomp
+
+# p UserAuthenticate::InstanceMethods::authenticate_user(username, password, hashed_users)

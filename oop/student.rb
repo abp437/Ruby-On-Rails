@@ -1,4 +1,4 @@
-require_relative "../authenticator/authenticator_bcrypt"
+require_relative "authenticator_module/authenticator_bcrypt"
 
 class Student
   # "attr_accessor" - This defines both Getters and Setters.
